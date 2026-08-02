@@ -29,3 +29,19 @@ seasonality components, random noise, and a small number of injected demand
 shocks, since real operational demand data is proprietary. This design 
 ensures the dataset has genuine, detectable patterns for the forecasting 
 model to learn, rather than being pure random noise.
+
+
+## Exploratory Data Analysis
+
+Before modeling, the synthetic demand data was decomposed into trend, 
+seasonal, and residual components using `statsmodels.tsa.seasonal_decompose`.
+
+![Seasonal Decomposition](dashboard/screenshots/seasonal_decomposition.png)
+
+- **Trend:** Demand shows a clear upward trend across the two-year period, 
+  consistent with the growth pattern built into the synthetic data.
+- **Seasonality:** A consistent weekly demand cycle is present, confirming 
+  the intended weekly seasonality component.
+- **Residuals:** Residuals are mostly random noise, with two visible spikes 
+  corresponding to the deliberately injected demand shocks — confirming these 
+  anomalies are genuine outliers rather than artifacts of trend or seasonality.
