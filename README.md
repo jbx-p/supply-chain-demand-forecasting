@@ -38,10 +38,12 @@ seasonal, and residual components using `statsmodels.tsa.seasonal_decompose`.
 
 ![Seasonal Decomposition](dashboard/screenshots/seasonal_decomposition.png)
 
-- **Trend:** Demand shows a clear upward trend across the two-year period, 
-  consistent with the growth pattern built into the synthetic data.
-- **Seasonality:** A consistent weekly demand cycle is present, confirming 
-  the intended weekly seasonality component.
-- **Residuals:** Residuals are mostly random noise, with two visible spikes 
-  corresponding to the deliberately injected demand shocks — confirming these 
-  anomalies are genuine outliers rather than artifacts of trend or seasonality.
+- **Trend:** Demand shows a clear upward trend, rising from roughly 65 to 
+  100 units over the two-year period.
+- **Seasonality:** A highly consistent weekly demand cycle is present, 
+  confirming the intended weekly seasonality built into the synthetic data.
+- **Residuals:** Residuals are mostly random noise centered around zero. 
+  Note that because `seasonal_decompose` estimates trend via a rolling 
+  average, the injected demand shocks partially influence the trend 
+  component rather than appearing purely as residual outliers — a known 
+  characteristic of this decomposition method.
