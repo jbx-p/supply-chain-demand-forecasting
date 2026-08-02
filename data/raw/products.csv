@@ -1,0 +1,11 @@
+product_id,category,unit_cost,lead_time_days
+1,Packaged Goods,238.42,14
+2,Apparel,155.26,10
+3,Industrial Tools,38.49,14
+4,Apparel,156.26,14
+5,Apparel,242.93,21
+6,Consumer Electronics,57.73,30
+7,Mining Equipment Parts,86.5,30
+8,Packaged Goods,20.42,14
+9,Industrial Tools,108.97,21
+10,Packaged Goods,101.1,14

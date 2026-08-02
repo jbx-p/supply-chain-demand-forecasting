@@ -21,3 +21,11 @@ recommendations, quantifying the cost trade-off between the two failure modes.
    product/warehouse
 3. **Cost impact analysis** — quantified comparison of current vs. optimized 
    inventory policy, measured in stockout days avoided and estimated cost savings
+
+## Note on Synthetic Data
+
+Demand data is synthetically generated using trend, weekly and yearly 
+seasonality components, random noise, and a small number of injected demand 
+shocks, since real operational demand data is proprietary. This design 
+ensures the dataset has genuine, detectable patterns for the forecasting 
+model to learn, rather than being pure random noise.
