@@ -72,3 +72,27 @@ MAPE ranged from 5.7% to 12.1% across products, reflecting differing
 signal-to-noise ratios in demand patterns between products — products with 
 stronger seasonal signal relative to noise (e.g., Product 5) forecast more 
 accurately than those with more volatile demand (e.g., Product 1).
+
+## Inventory Optimization
+
+Using each product's forecasted demand volatility and lead time, safety 
+stock and reorder points are calculated using standard inventory formulas:
+
+- **Safety Stock** = Z(service level) × demand std. dev. × √(lead time)
+- **Reorder Point** = (avg. daily demand × lead time) + safety stock
+
+A day-by-day simulation compares a naive policy (no safety stock buffer) 
+against the optimized policy, quantifying stockout days and total cost 
+(holding cost + stockout cost) for each.
+
+![Policy Comparison](dashboard/screenshots/policy_comparison.png)
+
+**Sample finding (Product 1, Warehouse 1):** the optimized policy reduced 
+stockout days from [X] to [Y] while increasing total cost by only $[Z] — 
+demonstrating that a forecast-driven reorder policy meaningfully reduces 
+stockout risk at a modest holding cost trade-off.
+
+**Assumptions:** demand is assumed approximately normally distributed for 
+the safety stock calculation; stockout cost is modeled as unit cost × 3 
+(representing lost sale + rush-order premium), and holding cost as 2% of 
+unit cost per day.
