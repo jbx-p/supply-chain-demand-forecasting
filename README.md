@@ -47,3 +47,28 @@ seasonal, and residual components using `statsmodels.tsa.seasonal_decompose`.
   average, the injected demand shocks partially influence the trend 
   component rather than appearing purely as residual outliers — a known 
   characteristic of this decomposition method.
+
+  ## Forecasting Methodology
+
+Demand is forecasted using Facebook Prophet, configured with yearly and 
+weekly seasonality enabled (matching the patterns confirmed during EDA) and 
+daily seasonality disabled (not applicable to daily-granularity data).
+
+Model evaluation uses a time-based train/test split (80/20) rather than 
+random shuffling, since random splitting would leak future information into 
+the training set — an invalid approach for time series data.
+
+![Forecast vs Actual](dashboard/screenshots/forecast_vs_actual.png)
+
+**Evaluation results across sample products:**
+
+| Product | Warehouse | MAE | MAPE |
+|---|---|---|---|
+| 1 | 1 | 9.81 | 12.14% |
+| 5 | 3 | 9.14 | 5.70% |
+| 8 | 2 | 7.54 | 11.08% |
+
+MAPE ranged from 5.7% to 12.1% across products, reflecting differing 
+signal-to-noise ratios in demand patterns between products — products with 
+stronger seasonal signal relative to noise (e.g., Product 5) forecast more 
+accurately than those with more volatile demand (e.g., Product 1).
