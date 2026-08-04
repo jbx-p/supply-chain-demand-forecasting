@@ -96,3 +96,17 @@ stockout risk at a modest holding cost trade-off.
 the safety stock calculation; stockout cost is modeled as unit cost × 3 
 (representing lost sale + rush-order premium), and holding cost as 2% of 
 unit cost per day.
+
+## Interactive Simulator
+
+An interactive Streamlit app lets users select a product/warehouse, adjust 
+target service level and lead time, and see live-updated demand forecasts, 
+safety stock/reorder point recommendations, and a cost comparison against a 
+naive inventory policy.
+
+![Streamlit App](dashboard/screenshots/streamlit_app.png)
+
+**To run locally:**
+```bash
+streamlit run app/streamlit_app.py
+```
