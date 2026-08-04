@@ -1,3 +1,3 @@
 policy,stockout_days,total_cost
-Naive,2,57490768.30666845
-Optimized,1,57420247.625765726
+Naive,21,1114369.5772154576
+Optimized,9,428656.2648723194

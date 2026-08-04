@@ -75,6 +75,17 @@ accurately than those with more volatile demand (e.g., Product 1).
 
 ## Inventory Optimization
 
+**Sample finding (Product 1, Warehouse 1, simulated over ~2 years):** the 
+optimized, forecast-driven policy reduced total cost from $1,114,370 to 
+$428,656 (a 61% reduction) while cutting stockout days from 21 to 9 (a 57% 
+reduction) — demonstrating that a forecast-driven reorder policy meaningfully 
+reduces both cost and stockout risk versus a naive fixed-reorder approach.
+
+**Assumptions:** demand is assumed approximately normally distributed for 
+the safety stock calculation; stockout cost is modeled as 3× unit cost 
+(representing lost sale + rush-order premium), and holding cost as 20% of 
+unit cost annually, applied daily.
+
 Using each product's forecasted demand volatility and lead time, safety 
 stock and reorder points are calculated using standard inventory formulas:
 

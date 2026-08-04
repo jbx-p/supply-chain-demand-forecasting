@@ -36,7 +36,7 @@ def calculate_eoq(annual_demand, order_cost, holding_cost_per_unit):
 
 def simulate_inventory_policy(demand_series, reorder_point, order_qty, 
                                 lead_time_days, starting_stock, unit_cost=1, 
-                                stockout_cost_multiplier=3, holding_cost_rate=0.02):
+                                stockout_cost_multiplier=3, annual_holding_cost_rate=0.20):
     """
     Simulates day-by-day inventory levels under a given reorder policy.
     
@@ -70,10 +70,11 @@ def simulate_inventory_policy(demand_series, reorder_point, order_qty,
             stock -= demand
 
         # Holding cost on whatever remains
-        total_holding_cost += stock * unit_cost * holding_cost_rate
+        daily_holding_cost_rate = annual_holding_cost_rate / 365
+        total_holding_cost += stock * unit_cost * daily_holding_cost_rate
 
-        # Check if we need to trigger a reorder
-        if stock <= reorder_point and (day + lead_time_days) not in pending_orders:
+        # Check if we need to trigger a reorder (only if nothing is already in transit)
+        if stock <= reorder_point and len(pending_orders) == 0:
             pending_orders.append(day + lead_time_days)
 
         stock_history.append(stock)
