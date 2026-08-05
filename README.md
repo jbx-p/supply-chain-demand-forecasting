@@ -121,3 +121,12 @@ naive inventory policy.
 ```bash
 streamlit run app/streamlit_app.py
 ```
+
+## Tableau Dashboard
+
+A complementary Tableau dashboard presents forecast accuracy, inventory 
+policy comparison, and cost savings in a static, shareable report format.
+
+![Tableau Dashboard](dashboard/screenshots/tableau_forecast_dashboard.png)
+
+View the live interactive version: [Demand Forecast Dashboard](https://public.tableau.com/views/DemandForecastDashboard_17859000890550/DemandForecastDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
